@@ -2,6 +2,8 @@ name: Build and publish docker image
 
 on:
   push:
+    branches:
+      - "main"
     tags:
       - "v*.*.*"
 
@@ -35,4 +37,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/bird:latest
+            ${{ steps.meta.outputs.tags }}
