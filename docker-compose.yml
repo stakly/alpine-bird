@@ -1,0 +1,11 @@
+services:
+  bird:
+    image: bird:latest
+    restart: unless-stopped
+    environment:
+      - CFG_DIR=/etc/bird
+      - TZ=Asia/Yekaterinburg
+    volumes:
+      - ./bird:/etc/bird
+    ports:
+      - 179:179
