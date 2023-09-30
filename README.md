@@ -5,7 +5,7 @@ Create your own docker-compose.yml file:
 ```yaml
 services:
   bird:
-    image: bird:latest
+    image: stakly/bird:latest
     restart: unless-stopped
     environment:
       # optionally create separated directory with configuration files

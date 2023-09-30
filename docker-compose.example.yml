@@ -1,11 +1,13 @@
 services:
   bird:
-    image: bird:latest
+    image: stakly/bird:latest
     restart: unless-stopped
     environment:
+      # optionally create separated directory with configuration files
       - CFG_DIR=/etc/bird
       - TZ=Asia/Yekaterinburg
     volumes:
+      # bind directory for configurations into container
       - ./bird:/etc/bird
     ports:
       - 179:179
